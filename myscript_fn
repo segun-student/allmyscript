@@ -1,0 +1,4 @@
+#!/bin/bash
+test= uname -a; uptime; mount |wc -l
+echo $test
+

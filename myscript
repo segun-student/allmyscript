@@ -1,0 +1,5 @@
+#!/bin/bash
+sys_info () { test= uname -a; uptime; mount |wc -l
+echo $test
+}
+sys_info

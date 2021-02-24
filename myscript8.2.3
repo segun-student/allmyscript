@@ -1,0 +1,7 @@
+#! /bin/bash
+display_item() {
+echo "Enter the inventory item to display from the database "
+read show
+grep -w -i "$show" ~/hardware.database
+}
+display_item

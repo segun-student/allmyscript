@@ -1,0 +1,13 @@
+#! /bin/bash
+
+echo  "What is the configuration of the PC: "
+read config
+echo  "What is the cost of the PC: "
+read cost
+echo  "What is the selling price: "
+read price
+echo  "What are the number of stock: "
+read stock
+echo -e "$config \t $cost\t $price \t $stock \n" >>~/hardware.database
+sed /^$/d ~/hardware.database >output && mv output ~/hardware.database
+cat ~/hardware.database|sort ~/hardware.database -o ~/hardware.database

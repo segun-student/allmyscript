@@ -1,0 +1,31 @@
+#!/bin/bash
+inventory_program () {
+echo "Inventory Program Menu:
+      =======================
+      A)dd inventory item to database
+      R)emove inventory item from database
+      S)how inventory item from database
+      D)isplay all inventory items in the database
+      Q)uit
+    
+     Enter your choice ==> \c"
+     read ANS
+     
+     case $ANS in
+       a|A)source ~/myscript8.2
+	       ;;    
+       r|R)source ~/myscript8.3.1
+	       ;;
+       s|S)source ~/myscript8.2.3
+	       ;;
+       d|D)cat ~/hardware.database
+	       ;;
+       q|Q)exit 
+	       ;;
+       * ) echo "You must enter select A,R,S,D or Q!"
+	       exit 1
+	       ;;
+
+      esac       
+}
+inventory_program       

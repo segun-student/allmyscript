@@ -1,0 +1,7 @@
+#! /bin/bash
+search_item () {
+echo "Enter a search pattern: "
+read search
+grep -w -i "$search" ~/hardware.database
+}
+search_item

@@ -1,0 +1,89 @@
+#!/bin/bash    
+display_inventory (){
+while
+sleep 1
+do
+     echo "Inventory Program Menu:
+           =======================
+     A)dd inventory item to database
+     R)emove inventory item from database
+     S)how inventory item from database
+     D)isplay all inventory items in the database
+     Indicate to quit ==> q=quit" 
+
+until
+     read ANS
+       
+
+     if [ $ANS = "q" -o $ANS = "Q"  ];
+     then
+	    exit
+    else
+	    echo "Type q or Q to exit"
+    fi
+
+
+do
+    sleep 1	
+done
+done
+}
+
+inventory_program () {
+echo "Inventory Program Menu:
+      =======================
+      A)dd inventory item to database
+      R)emove inventory item from database
+      S)how inventory item from database
+      D)isplay all inventory items in the database
+      Q)uit
+    
+     Enter your choice ==> \c"
+     read ANS
+     
+     case $ANS in
+       a|A)source ~/myscript8.2
+	       ;;    
+       r|R)source ~/myscript8.3.1
+	       ;;
+       s|S)source ~/myscript8.2.3
+	       ;;
+       d|D)cat ~/hardware.database
+	       ;;
+       q|Q)exit 
+	       ;;
+       * ) echo "You must enter select A,R,S,D or Q!"
+	       exit 1
+	       ;;
+
+      esac       
+}
+
+del_item() {
+echo "Enter an item to be deleted: "
+read  search
+grep  -v -i $search ~/hardware.database > output && mv output ~/hardware.database
+}
+
+
+add_item() {
+if [ $# -ne 4 ]
+then
+	echo "you must enter 4 argument"
+	exit 255
+fi
+echo -e "$1 \t  $2\t  $3 \t $4 \n" >>~/hardware.database
+sed /^$/d ~/hardware.database >output && mv output ~/hardware.database
+}
+
+search_item () {
+echo "Enter a search pattern: "
+read search
+grep -w -i "$search" ~/hardware.database
+}
+
+sys_info () {
+test= uname -a; uptime; mount |wc -l
+echo $test
+}
+

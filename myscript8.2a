@@ -1,0 +1,8 @@
+#! /bin/bash
+if [ $# -ne 4 ]
+then
+	echo "you must enter 4 argument"
+	exit 255
+fi
+echo -e "$1 \t  $2\t  $3 \t $4 \n" >>~/hardware.database
+sed /^$/d ~/hardware.database >output && mv output ~/hardware.database

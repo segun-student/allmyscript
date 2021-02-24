@@ -1,0 +1,31 @@
+#!/bin/bash    
+
+
+while
+sleep 1
+do
+     echo "Inventory Program Menu:
+           =======================
+     A)dd inventory item to database
+     R)emove inventory item from database
+     S)how inventory item from database
+     D)isplay all inventory items in the database
+     Indicate to quit ==> q=quit"
+     
+
+until
+	
+     read ANS
+       
+
+     if [ $ANS = "q" -o $ANS = "Q"  ];
+     then
+	    exit
+   else
+	    echo "Type q or Q to exit"
+    fi
+
+do
+	sleep 1
+done
+done

@@ -1,0 +1,7 @@
+#! /bin/bash
+del_item() {
+echo "Enter an item to be deleted: "
+read  search
+grep  -v -i $search ~/hardware.database > output && mv output ~/hardware.database
+}
+del_item
